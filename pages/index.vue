@@ -1,51 +1,56 @@
 <template>
-  <div class="w-full max-w-md m-auto mt-10">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-          Type text to analyze
-        </label>
-        <textarea v-model="model.text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="10" type="text" placeholder="Type text to analyze"></textarea>
-      </div>
-      <div class="flex items-center justify-between mb-4">
-        <button v-if="!loading.generate" @click="getText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-          Generate Text
-        </button>
-        <button v-else disabled class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-          loading ...
-        </button>
-        <button v-if="!loading.analyze" @click="analyzeText" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-          Analyze
-        </button>
-        <button v-else disabled class="disabled bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-          loading ...
-        </button>
-      </div>
-      <hr>
-      <div class="text-center mt-4" v-if="result.type">
-        <h3 class="mb-2">Result</h3>
-        <div :class="result.bg + ' w-auto m-auto text-white p-10'">
-          <p class="text-4xl font-bold">{{ result.score }}</p>
-          <i>{{ result.type }}</i>
+  <div>
+    <Navbar/>
+    <div class="w-full max-w-md m-auto mt-10">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Type text to analyze
+          </label>
+          <textarea v-model="model.text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="10" type="text" placeholder="Type text to analyze"></textarea>
         </div>
-        
-        <div class="overflow-hidden bg-white rounded w-full border mt-4 text-left">
-          <div class="block group hover:bg-blue p-4 border-b" v-for="(sentence, i) in result.sentences" :key="i">
-            <p v-if="sentence.sentiment.type == 'negative'" class="font-bold text-lg mb-1 text-red-500">Negative</p>
-            <p v-if="sentence.sentiment.type == 'neutral'" class="font-bold text-lg mb-1 text-yellow-500">Neutral</p>
-            <p v-if="sentence.sentiment.type == 'positive'" class="font-bold text-lg mb-1 text-green-500">Positive</p>
-            <p class="text-grey-darker mb-2">{{ sentence.sentence }}</p>
+        <div class="flex items-center justify-between mb-4">
+          <button v-if="!loading.generate" @click="getText" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Generate Text
+          </button>
+          <button v-else disabled class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            loading ...
+          </button>
+          <button v-if="!loading.analyze" @click="analyzeText" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Analyze
+          </button>
+          <button v-else disabled class="disabled bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            loading ...
+          </button>
+        </div>
+        <hr>
+        <div class="text-center mt-4" v-if="result.type">
+          <h3 class="mb-2">Result</h3>
+          <div :class="result.bg + ' w-auto m-auto text-white p-10'">
+            <p class="text-4xl font-bold">{{ result.score }}</p>
+            <i>{{ result.type }}</i>
+          </div>
+          
+          <div class="overflow-hidden bg-white rounded w-full border mt-4 text-left">
+            <div class="block group hover:bg-blue p-4 border-b" v-for="(sentence, i) in result.sentences" :key="i">
+              <p v-if="sentence.sentiment.type == 'negative'" class="font-bold text-lg mb-1 text-red-500">Negative</p>
+              <p v-if="sentence.sentiment.type == 'neutral'" class="font-bold text-lg mb-1 text-yellow-500">Neutral</p>
+              <p v-if="sentence.sentiment.type == 'positive'" class="font-bold text-lg mb-1 text-green-500">Positive</p>
+              <p class="text-grey-darker mb-2">{{ sentence.sentence }}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
-    <p class="text-center text-gray-500 text-xs">
-      &copy;2021 CerdasBahasa. All rights reserved.
-    </p>
+      </form>
+      <p class="text-center text-gray-500 text-xs">
+        &copy;2021 CerdasBahasa. All rights reserved.
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+  
+  import Navbar from '@/components/navbar.vue'
   
   const bgResult = {
     'negative': 'bg-red-500',
@@ -55,6 +60,9 @@
   
   export default {
     name: 'Index',
+    components: {
+      Navbar
+    },
     data(){
       return{ 
         model: {
