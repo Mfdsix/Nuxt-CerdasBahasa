@@ -69,7 +69,7 @@ This directory contains your Vuex store files. Creating a file in this directory
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 
 ### `Resources`
-https://github.com/public-apis/public-apis (api references)
-https://tailwindui.com/components (ui)
-https://baconipsum.com/ (random text)
+https://github.com/public-apis/public-apis (api references)<br>
+https://tailwindui.com/components (ui)<br>
+https://baconipsum.com/ (random text)<br>
 https://sentim-api.herokuapp.com/ (sentiment analyzer)
