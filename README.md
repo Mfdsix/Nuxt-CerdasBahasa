@@ -1,75 +1,73 @@
-# nuxt-cerdasbahasa
+# CerdasBahasa
 
-## Build Setup
+> This is one of my frontend project that focused on language processing, all processing provided by third party i got from github nor public apis. Thanks for all api providers.
 
-```bash
-# install dependencies
-$ npm install
+![screenshot](./screenshoot.png)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+For basic use, i add 2 features. First one is Sentiment Check, which can check sentiment level based on text submitted to program. And second one is Language Detector, which can detect what language is used on some text you submitted.
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+## Built With
 
-# generate static project
-$ npm run generate
+- Nuxt Js (https://nuxtjs.org/)
+- Tailwind UI (https://tailwindui.com)
+- Random Text Generator (https://baconipsum.com/)
+- Sentiment Analyzer (https://sentim-api.herokuapp.com)
+- Santuke Random Sentence Generator (https://github.com/Mfdsix/API-Santuke) (https://santuke.herokuapp.com/)
+- Language Detector (https://detectlanguage.com/)
+
+## Live Demo
+
+Unavailable
+
+
+## Getting Started
+
+**Do this steps to reproduce this project to your own computer.**
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+- Node
+- NPM
+- Nuxt
+- API key for detectlanguage.com api
+
+### Setup
+```git clone https://github.com/Mfdsix/Nuxt-CerdasBahasa <project-name>```
+### Install
+```npm install```
+### Usage
+```npm run dev```
+### Run tests
+```visit localhost:3000```
+### Deployment
+```
+npm run build
+npm run start
+
+or
+
+npm run generate
+npm run start
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-## Special Directories
+## Authors
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+👤 **Mfdsix**
 
-### `assets`
+- GitHub: [@Mfdsix](https://github.com/Mfdsix)
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+## 🤝 Contributing
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+Contributions, issues, and feature requests are welcome!
 
-### `components`
+Feel free to check the [issues page](../../issues/).
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+## Show your support
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+Give a ⭐️ if you like this project!
 
-### `layouts`
+## 📝 License
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
-
-### `Resources`
-https://github.com/public-apis/public-apis (api references)<br>
-https://tailwindui.com/components (ui)<br>
-https://baconipsum.com/ (random text)<br>
-https://sentim-api.herokuapp.com/ (sentiment analyzer)
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
