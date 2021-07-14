@@ -1,13 +1,11 @@
-import ENV from '~/utils/env'
-
-export default (axios: any) => ({
+export default (axios: any, apiKey: string) => ({
     detect(query: string) {
         return axios.get("https://ws.detectlanguage.com/0.2/detect", {
             params: {
                 q: query,
             },
             headers: {
-                Authorization: "Bearer " + ENV.detectLanguageApiKey
+                Authorization: "Bearer " + apiKey
             }
         })
     }

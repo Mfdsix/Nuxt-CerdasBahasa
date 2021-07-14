@@ -8,7 +8,7 @@ export default (context: any, inject: any) => {
             return await context.$axios.$get(url, config)
             .catch(this.error)
         }
-
+        
         async post(url: string, data: any){
             return await context.$axios.$post(url, data)
             .catch(this.error)
@@ -24,7 +24,7 @@ export default (context: any, inject: any) => {
     const factories = {
         randomText: RandomText(new Axios),
         sentiment: Sentiment(new Axios),
-        langDetector: LangDetector(new Axios),
+        langDetector: LangDetector(new Axios, context.env.detectLanguageApiKey),
     }
     
     // Inject $api
