@@ -1,10 +1,11 @@
 import RandomText from '~/api/randomText'
 import Sentiment from '~/api/sentiment'
+import LangDetector from '~/api/langDetector'
 
 export default (context: any, inject: any) => {
     class Axios {
-        async get(url: string){
-            return await context.$axios.$get(url)
+        async get(url: string, config: any = null){
+            return await context.$axios.$get(url, config)
             .catch(this.error)
         }
 
@@ -18,12 +19,14 @@ export default (context: any, inject: any) => {
             return false
         }
     }
+
     // Initialize API factories
     const factories = {
         randomText: RandomText(new Axios),
         sentiment: Sentiment(new Axios),
-    };
+        langDetector: LangDetector(new Axios),
+    }
     
     // Inject $api
-    inject("api", factories);
+    inject("api", factories)
 };

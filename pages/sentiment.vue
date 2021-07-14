@@ -79,7 +79,7 @@
     methods: {
       async getText(){
         this.loading.generate = true
-        const text = await this.$api.randomText.get()
+        const text = await this.$api.randomText.random()
         this.loading.generate = false
         
         if(text){
