@@ -2,7 +2,7 @@
 
 > This is one of my frontend project that focused on language processing, all processing provided by third party i got from github nor public apis. Thanks for all api providers.
 
-![screenshot](./screenshoot.png)
+![screenshot](./screenshoot.PNG)
 
 For basic use, i add 2 features. First one is Sentiment Check, which can check sentiment level based on text submitted to program. And second one is Language Detector, which can detect what language is used on some text you submitted.
 
