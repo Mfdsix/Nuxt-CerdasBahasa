@@ -2,6 +2,10 @@
   "name": "nuxt-cerdasbahasa",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Mahfudz Ainur Rif'an",
+    "email": "mfdsix.1nd0@gmail.com"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
