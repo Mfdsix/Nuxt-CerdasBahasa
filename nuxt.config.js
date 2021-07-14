@@ -72,7 +72,10 @@ export default {
   proxy: {
     '/api/random': 'https://baconipsum.com/api/?type=all-meat',
   },
-
+  // set env
+  env: {
+    detectLanguageApiKey: process.env.DETECT_LANGUAGE_API_KEY || 'api_key',
+  },
   // set private env runtime
   privateRuntimeConfig: {
     detectLanguageApiKey: process.env.DETECT_LANGUAGE_API_KEY || 'api_key',
