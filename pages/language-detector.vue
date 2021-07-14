@@ -23,12 +23,31 @@
                         loading ...
                     </button>
                 </div>
+
+                <hr>
+                <div class="text-center mt-4" v-if="detections.length > 0">
+                    <h3 class="mb-2">Result</h3>
+                    <div class="bg-green-500 w-auto m-auto text-white p-10">
+                      <p class="text-4xl font-bold">{{ detections[0].lang }}</p>
+                      <i>confidence: {{ detections[0].confidence }}</i>
+                    </div>
+                    
+                    <div class="overflow-hidden bg-white rounded w-full border mt-4 text-left">
+                      <div class="block group hover:bg-blue p-4 border-b" v-for="(language, i) in detections" :key="i" v-if="i > 0">
+                        <p v-if="!language.isReliable" class="font-bold text-lg mb-1 text-red-500">Not Reliable</p>
+                        <p v-else class="font-bold text-lg mb-1 text-green-500">Reliable</p>
+                        <p class="text-grey-darker mb-2">{{ language.lang }}</p>
+                      </div>
+                    </div>
+                  </div>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import LANG from '@/utils/lang'
     export default{
         name: 'LanguageDetector',
         data(){
@@ -39,11 +58,13 @@
                 loading: {
                     generate: false,
                     detect: false
-                }
+                },
+                detections: []
             }
         },
         methods: {
             async generateText(){
+                this.detections = [];
                 this.toggleState(false);
                 const generate = await this.$api.randomText.randomLang();
                 if(generate.success){
@@ -52,9 +73,16 @@
                 this.toggleState(true);
             },
             async detectText(){
+                this.detections = [];
                 this.toggleState(false);
                 const detect = await this.$api.langDetector.detect(this.model.text);
-                console.log(detect);
+                if(detect?.data){
+                    const detections = detect.data?.detections;
+                    detections.forEach((v) => {
+                        v.lang = LANG[v.language];
+                        this.detections.push(v);
+                    });
+                }
                 this.toggleState(true);
             },
             toggleState(enable = true){
