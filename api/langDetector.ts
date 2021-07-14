@@ -7,7 +7,7 @@ export default (axios: any) => ({
                 q: query,
             },
             headers: {
-                Authorization: "Bearer " + ENV.DETECT_LANGUAGE_API_KEY
+                Authorization: "Bearer " + ENV.detectLanguageApiKey
             }
         })
     }
