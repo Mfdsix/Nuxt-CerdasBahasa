@@ -76,8 +76,4 @@ export default {
   env: {
     detectLanguageApiKey: process.env.DETECT_LANGUAGE_API_KEY || 'api_key',
   },
-  // set private env runtime
-  privateRuntimeConfig: {
-    detectLanguageApiKey: process.env.DETECT_LANGUAGE_API_KEY || 'api_key',
-  }
 }
