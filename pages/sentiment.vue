@@ -2,7 +2,7 @@
   <div>
     <div class="w-full max-w-md m-auto mt-10">
       <Back/>
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
             Type text to analyze
@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </div>
       <p class="text-center text-gray-500 text-xs">
         &copy;2021 CerdasBahasa. All rights reserved.
       </p>
@@ -78,9 +78,9 @@
     },
     methods: {
       async getText(){
-        this.loading.generate = true;
-        const text = await this.$axios.$get("/api-text")
-        this.loading.generate = false;
+        this.loading.generate = true
+        const text = await this.$api.randomText.get()
+        this.loading.generate = false
         
         if(text){
           this.model.text = text[0]
@@ -100,7 +100,7 @@
         this.loading.generate = true
         this.loading.analyze = true
         
-        const analyze = await this.$axios.$post("https://sentim-api.herokuapp.com/api/v1/", {
+        const analyze = await this.$api.sentiment.analyze({
           text: this.model.text
         })
         this.loading.generate = false

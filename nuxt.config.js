@@ -22,6 +22,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: "@/plugins/api.ts" }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,7 +43,9 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://axios.nuxtjs.org/
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // https://www.npmjs.com/package/@nuxtjs/proxy
+    '@nuxtjs/proxy',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -62,13 +65,9 @@ export default {
   build: {
   },
 
+  
   // axios proxy
   proxy: {
-    '/api-text': {
-      target: 'https://baconipsum.com/api/?type=all-meat'
-    },
-    '/api-sentiment': {
-      target: 'https://sentim-api.herokuapp.com/api/v1/'
-    }
+    '/api/random': 'https://baconipsum.com/api/?type=all-meat',
   }
 }

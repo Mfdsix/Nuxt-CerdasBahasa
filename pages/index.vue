@@ -6,8 +6,13 @@
             <div class="grid grid-cols-2 gap-2">
                 <Card
                 :title="'Sentiment Check'"
-                :description="'check sentiment level from submitted sentences, especially in english'"
+                :description="'check sentiment level from submitted sentences'"
                 :to="'/sentiment'"
+                />
+                <Card
+                :title="'Language Detector'"
+                :description="'detect language of some sentences given precisely'"
+                :to="'/language-detector'"
                 />
             </div>
         </div>
@@ -17,7 +22,7 @@
 <script>
 
     import Card from '@/components/card.vue'
-
+    
     export default{
         name: 'Index',
         components: {
